@@ -11,7 +11,7 @@ void pascalTriangle(int arr[], int n){
         temp[i] = arr[i] + arr[i+1];
     }
 
-    pascalTriangle(arr, n-1);
+    pascalTriangle(temp, n-1);
     for(int i = 0; i < n; i++){
         cout << arr[i] << " ";
     }
