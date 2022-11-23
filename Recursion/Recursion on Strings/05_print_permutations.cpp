@@ -11,8 +11,6 @@ void printPermutations(string str, string asf){
         string remPermutation = str.substr(0, i) + str.substr(i + 1);
         printPermutations(remPermutation, asf + ch);
     }
-    
-
 }
 
 int main(){

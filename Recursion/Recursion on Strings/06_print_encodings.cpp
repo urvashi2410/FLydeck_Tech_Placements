@@ -25,7 +25,6 @@ void printEncoding(string str, string asf){
             printEncoding(ros2, asf + (char)(stoi(s2) + 'a' - 1));
         }
     }
-    
 }
 
 int main(){

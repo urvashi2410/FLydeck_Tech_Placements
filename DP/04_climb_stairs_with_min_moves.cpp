@@ -1,35 +1,31 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-
-int climbStairsMinMoves(int A[], int n){
-    vector<int>dp(n+1, INT_MAX);
+int min_jumps(int A[], int n) {
+    vector<int> dp(n+1, INT_MAX);
     dp[n] = 0;
-
-    for(int i = (n-1); i >= 0; i--){
-        if(A[i] > 0){
-            int mini = INT_MAX;
-            for(int j = 1; j <= A[i] && i+j <= n; j++){
-                mini = min(mini, dp[i+j]);
+    for(int i=(n-1);i>=0;i--) {
+        if(A[i]>0) {
+            int minimum = INT_MAX;
+            for(int j=1;j<=A[i];j++) {
+                minimum = min(minimum, dp[i+j]);
             }
-
-            if(mini != INT_MAX){
-                dp[i] = 1 + mini;
+            if(minimum!=INT_MAX) {
+                dp[i] = minimum + 1;
             }
-            else{
+            else {
                 dp[i] = 0;
             }
         }
     }
     return dp[0];
 }
-
-int main(){
+int main() {
     int n;
-    cin >> n;
+    cin>>n;
     int A[n];
-    for(int i = 0; i < n; i++){
-        cin >> A[i];
+    for(int i=0;i<n;i++){
+        cin>>A[i];
     }
-    cout << climbStairsMinMoves(A, n);
+    cout<<min_jumps(A, n)<<endl;
     return 0;
 }
